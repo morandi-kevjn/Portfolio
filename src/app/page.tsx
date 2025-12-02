@@ -3,6 +3,7 @@ import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ContactSection from "@/components/sections/ContactSection";
+import CertificationsSection from "@/components/sections/CertificationsSection";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 
@@ -42,6 +43,7 @@ export default function Home() {
             <SkillsSection />
             <ProjectsSection />
             <ExperienceSection />
+            <CertificationsSection />
             <ContactSection />
             <Footer />
         </>
