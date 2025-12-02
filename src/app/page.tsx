@@ -27,7 +27,7 @@ export default function Home() {
                     <div className="flex justify-center gap-4 pt-8">
                         <a href="#contact">
                             <Button size="lg" className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600">
-                                Let's Connect
+                                Let&#39;s Connect
                             </Button>
                         </a>
                         <a href="#projects">
