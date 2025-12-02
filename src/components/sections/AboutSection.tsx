@@ -52,6 +52,10 @@ const AboutSection: React.FC = () => {
                                 <span className="w-2 h-2 bg-white rounded-full mt-3 mr-3 flex-shrink-0"></span>
                                 <span>Collaborative problem-solving approach</span>
                             </li>
+                            <li className="flex items-start">
+                                <span className="w-2 h-2 bg-white rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span>Security first mindset</span>
+                            </li>
                         </ul>
                     </div>
                 </div>

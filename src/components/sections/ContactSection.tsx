@@ -31,14 +31,12 @@ const ContactSection: React.FC = () => {
                         value={form.message}
                         onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                     />
-                    <button
-                        type="submit"
-                        className="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700"
-                        disabled
-                        title="To enable, connect backend email service."
+                    <a
+                        href="mailto:kevjn.morandi@gmail.com?subject=Portfolio Contact"
+                        className="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700 inline-block"
                     >
-                        Send (Coming Soon)
-                    </button>
+                        Send Email
+                    </a>
                 </form>
                 <div className="flex space-x-4 justify-center">
                     <a

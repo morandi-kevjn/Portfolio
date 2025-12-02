@@ -1,7 +1,7 @@
 // app/layout.tsx
 import './globals.css';
 import { ReactNode } from 'react';
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 
 interface RootLayoutProps {
     children: ReactNode;
@@ -16,9 +16,10 @@ export default function RootLayout({ children }: RootLayoutProps ) {
     return (
         <html lang="en" className="scroll-smooth">
         <body className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen antialiased transition-colors duration-300">
-        <ThemeToggle/>
         {children}
         </body>
         </html>
     );
 }
+
+// <ThemeToggle/>

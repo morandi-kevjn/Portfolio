@@ -4,6 +4,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
 
 export default function Home() {
     return (
@@ -42,6 +43,7 @@ export default function Home() {
             <ProjectsSection />
             <ExperienceSection />
             <ContactSection />
+            <Footer />
         </>
     );
 }
