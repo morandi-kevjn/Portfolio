@@ -6,24 +6,10 @@ export async function POST(request: NextRequest) {
     try {
         const { name, email, subject, message } = await request.json();
 
-        // Validation
         if (!name || !email || !subject || !message) {
-            return NextResponse.json(
-                { error: 'All fields are required' },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
         }
 
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return NextResponse.json(
-                { error: 'Invalid email format' },
-                { status: 400 }
-            );
-        }
-
-        // Create transporter
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -32,55 +18,43 @@ export async function POST(request: NextRequest) {
             },
         });
 
-        // Verify transporter configuration
-        await transporter.verify();
-
-        // Send email
-        await transporter.sendMail({
+        // --- Email to YOU ---
+        const mailToOwner = {
             from: process.env.EMAIL_USER,
             to: process.env.EMAIL_USER,
-            cc: process.env.EMAIL_CC,
+            cc: process.env.MAIN_EMAIL,
             subject: `Portfolio Contact: ${subject}`,
+            replyTo: email,
+            html: `... your existing HTML for the owner email ...`
+        };
+
+        // --- Confirmation Email to SENDER ---
+        const mailToSender = {
+            from: process.env.EMAIL_USER,
+            to: email, // Send to the person who filled out the form
+            subject: `Thank you for your message, ${name}!`,
             html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-          <h2 style="color: #16a34a; margin-bottom: 20px;">New Portfolio Contact</h2>
-          
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
-            <strong style="color: #333;">Name:</strong> ${name}
-          </div>
-          
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
-            <strong style="color: #333;">Email:</strong> ${email}
-          </div>
-          
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
-            <strong style="color: #333;">Subject:</strong> ${subject}
-          </div>
-          
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 6px;">
-            <strong style="color: #333;">Message:</strong><br>
-            <div style="margin-top: 10px; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</div>
-          </div>
-          
-          <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
-          <p style="color: #666; font-size: 14px; margin: 0;">
-            This message was sent from your portfolio contact form.
-          </p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+          <h2 style="color: #16a34a;">Message Received!</h2>
+          <p>Hi ${name},</p>
+          <p>Thank you for getting in touch. I have received your message and will get back to you as soon as possible.</p>
+          <p>Best regards,<br>Kevjn Morandi</p>
+          <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+          <p style="color: #666; font-size: 12px;">This is an automated confirmation. Please do not reply directly to this email.</p>
         </div>
       `,
-            replyTo: email,
-        });
+        };
 
-        return NextResponse.json({
-            success: true,
-            message: 'Email sent successfully!'
-        });
+        // Send both emails in parallel
+        await Promise.all([
+            transporter.sendMail(mailToOwner),
+            transporter.sendMail(mailToSender)
+        ]);
+
+        return NextResponse.json({ success: true, message: 'Email sent successfully!' });
 
     } catch (error) {
         console.error('Email sending failed:', error);
-        return NextResponse.json(
-            { error: 'Failed to send email. Please try again later.' },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: 'Failed to send email. Please try again.' }, { status: 500 });
     }
 }
