@@ -4,7 +4,7 @@ import React from "react";
 const projects = [
     {
         title: "Portfolio Website",
-        description: "This site – built with Next.js, Tailwind. Showcases my professional projects and skills.",
+        description: "This site – built with Next.js, Tailwind, and full dark/light theme support. Showcases my professional projects and skills.",
         link: "https://github.com/morandi-kevjn/Portfolio",
         stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"]
     },
