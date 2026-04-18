@@ -4,8 +4,18 @@ import React from "react";
 const experience = [
     {
         role: "Software Engineer",
+        company: "PuntoExe",
+        period: "Feb 2026 – Present",
+        details: [
+            "Vision ERP integration, data processing, and automation",
+            "Design of scalable, maintainable software solutions",
+            "Build robust, testable, and secure software componentss"
+        ]
+    },
+    {
+        role: "Software Engineer",
         company: "Brain Enterprise",
-        period: "Jul 2025 – Present",
+        period: "Jul 2025 – Jan 2026",
         details: [
             "Microservices solutions with Kubernetes and Docker",
             "Custom .NET & Python applications; software/database architecture",
