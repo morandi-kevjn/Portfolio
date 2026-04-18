@@ -4,7 +4,7 @@ import React from "react";
 const experience = [
     {
         role: "Software Engineer",
-        company: "PuntoExe",
+        company: "Puntoexe",
         period: "Feb 2026 – Present",
         details: [
             "Vision ERP integration, data processing, and automation",
