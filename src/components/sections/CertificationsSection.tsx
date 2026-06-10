@@ -5,30 +5,50 @@ const certifications = [
         issuer: "Meta",
         date: "Jun 2024",
         credentialId: "XTSDF5CGN3LL",
-        // Add the direct credential link if you have it, or leave as "#"
-        url: "#"
+        url: "https://coursera.org/share/dfe1717c5a6f38c6c612c65bc1c7ac9a"
     },
     {
         title: "Introduction to Cloud Computing",
         issuer: "IBM",
         date: "Jun 2024",
         credentialId: "2FE2HFFXVM63",
-        url: "#"
+        url: "https://www.credly.com/earner/earned/badge/bc829539-f836-44e9-a06c-88812d55d5cf"
     },
     {
         title: "Introduction to DevOps",
         issuer: "IBM",
         date: "May 2024",
         credentialId: "UMGCCBWNSHFP",
-        url: "#"
+        url: "https://www.credly.com/earner/earned/badge/f294acab-77fb-4bbd-8ba5-d573b575a1ec"
     },
     {
         title: "Pre Security Certificate",
         issuer: "TryHackMe",
         date: "Issued Sep 2025, Expires Sep 2028",
         credentialId: "THM-YPJ86ODVS2",
-        url: "#"
-    }
+        url: "https://tryhackme.com/certificate/THM-YPJ86ODVS2"
+    },
+    {
+        title: "MongoDB Overview: Core Concepts and Architecture",
+        issuer: "MongoDB",
+        date: "May 2026",
+        credentialId: "28fe0fd9-65ca-4fbe-b82f-bf136478cffd",
+        url: "https://www.credly.com/earner/earned/badge/28fe0fd9-65ca-4fbe-b82f-bf136478cffd"
+    },
+    {
+        title: "Optimizing and Maintaining MongoDB Cluster Reliability",
+        issuer: "MongoDB",
+        date: "May 2026",
+        credentialId: "46c43caf-ae70-4fa1-8f52-5450247dcd48",
+        url: "https://www.credly.com/earner/earned/badge/46c43caf-ae70-4fa1-8f52-5450247dcd48"
+    },
+    {
+        title: "Mindshift: Break Through Obstacles to Learning and Discover Your Hidden Potential",
+        issuer: "MongoDB",
+        date: "May 2026",
+        credentialId: "6993EXVMUG14",
+        url: "https://www.coursera.org/account/accomplishments/verify/6993EXVMUG14"
+    },
 ];
 
 export default function CertificationZone() {
